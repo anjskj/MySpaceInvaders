@@ -36,6 +36,7 @@ kaboom({
   plugins: [ peditPlugin, asepritePlugin, kbmspritePlugin ],
 });
 loadKbmsprite("space-invader", "sprites/space-invader.kbmsprite");
+loadKbmsprite("space-ship", "sprites/space-ship.kbmsprite");
 loadKbmsprite("wall", "sprites/wall.kbmsprite");
 scene("main", (args = {}) => {
 addLevel([
@@ -52,9 +53,13 @@ addLevel([
   width: 30,
   height: 22,
   '^' : [sprite('space-invader')],
-  '!' : [sprite('wall')],  
-  '&' : [sprite('wall')]
+  '!' : [sprite('wall'), 'left-wall'],  
+  '&' : [sprite('wall'), 'right-wall'],
 })
+
+const player = add([
+  sprite('space-ship')
+  ])
 });
 start("main");
 
