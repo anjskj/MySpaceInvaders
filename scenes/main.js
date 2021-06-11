@@ -17,5 +17,17 @@ addLevel([
 })
 
 const player = add([
-  sprite('space-ship')
+  sprite('space-ship'),
+  pos(width()/2, height()/2),
+  origin('center')
   ])
+
+const Move_Speed = 200
+
+  keyDown('left', ()=>{
+    player.move(-Move_Speed,0)
+  })
+
+    keyDown('right', ()=>{
+    player.move(Move_Speed,0)
+  })
